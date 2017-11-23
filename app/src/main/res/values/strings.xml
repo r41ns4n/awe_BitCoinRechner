@@ -1,7 +1,13 @@
 <resources>
     <string name="app_name">Bitcoin</string>
-    <string name="btn_change">Umrechnen</string>
+    <!-- Title -->
     <string name="willkommen">Bitcoin Umrechner</string>
+
+    <!-- Buttons -->
+    <string name="btn_change">Umrechnen</string>
+    <string name="btn_exit">Exit</string>
+
+    <!-- Eingabe Felder -->
     <string name="hint_euro">Bitte geben Sie hier Ihren Euro Betrag ein</string>
-    <string name="hint_bitcoin">Hier wird Ihr Euro Betrag in Bitcoins umgerechnet</string>
+    <string name="hint_bitcoin">Bitcoin Betrag</string>
 </resources>
