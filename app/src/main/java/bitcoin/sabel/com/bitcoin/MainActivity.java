@@ -14,7 +14,7 @@ public class MainActivity extends Activity {
     private Button btn_change, btn_exit;
     private TextView tv_wilkommen, tv_bitcoin;
     private EditText et_euro;
-    private double bitcoinKurs;
+    private double bitcoin_euro, euro_bitcoin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,8 @@ public class MainActivity extends Activity {
         et_euro = findViewById(R.id.et_euro);
         tv_bitcoin = findViewById(R.id.tv_bitcoin);
         btn_change.setEnabled(false);
-        bitcoinKurs = 2.5;
+        bitcoin_euro = 6916.65;
+        euro_bitcoin = 0.00014457866163532926;
 
 
         // Event Button Change
@@ -36,9 +37,9 @@ public class MainActivity extends Activity {
             public void onClick(View view) {
                     String euro_text = et_euro.getText().toString().replace(',', '.');
                     Double euro_text_double = Double.parseDouble(euro_text);
-                    euro_text_double = euro_text_double * bitcoinKurs;
+                    euro_text_double = euro_text_double * euro_bitcoin;
                     String bitcoin_text = new Double(euro_text_double).toString();
-                    tv_bitcoin.setText(bitcoin_text);
+                    tv_bitcoin.setText(bitcoin_text + " BTC");
             }
         });
 
