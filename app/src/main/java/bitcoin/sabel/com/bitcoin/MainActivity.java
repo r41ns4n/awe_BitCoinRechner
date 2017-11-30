@@ -11,9 +11,9 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
-    private Button btn_change, btn_exit;
-    private TextView tv_wilkommen, tv_bitcoin;
-    private EditText et_euro;
+    private Button btn_change, btn_exit, btn_new;
+    private TextView tv_wilkommen;
+    private EditText et_euro, et_bitcoin;
     private double bitcoin_euro, euro_bitcoin;
 
     @Override
@@ -23,24 +23,42 @@ public class MainActivity extends Activity {
 
         btn_change = findViewById(R.id.btn_change);
         btn_exit = findViewById(R.id.btn_exit);
+        btn_new = findViewById(R.id.btn_new);
         tv_wilkommen = findViewById(R.id.tv_willkommen);
         et_euro = findViewById(R.id.et_euro);
-        tv_bitcoin = findViewById(R.id.tv_bitcoin);
+        et_bitcoin = findViewById(R.id.et_bitcoin);
         btn_change.setEnabled(false);
         bitcoin_euro = 6916.65;
         euro_bitcoin = 0.00014457866163532926;
-
 
         // Event Button Change
         btn_change.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    String euro_text = et_euro.getText().toString().replace(',', '.');
-                    Double euro_text_double = Double.parseDouble(euro_text);
-                    euro_text_double = euro_text_double * euro_bitcoin;
-                    String bitcoin_text = new Double(euro_text_double).toString();
-                    tv_bitcoin.setText(bitcoin_text + " BTC");
-            }
+                if (et_euro.getText().toString().length() > 0) {
+                   String euro_text = et_euro.getText().toString().replace(',', '.');
+                   try {
+                       Double euro_text_double = Double.parseDouble(euro_text);
+                       euro_text_double = euro_text_double * euro_bitcoin;
+                       String bitcoin_text = new Double(euro_text_double).toString();
+                       et_bitcoin.setText(bitcoin_text + " BTC");
+                   } catch (NumberFormatException e) {
+                        et_euro.setText("");
+                   } // END TRY-CATCH BLOCK
+
+                } else {
+                    String bitcoin_text = et_bitcoin.getText().toString().replace(',', '.');
+                    try {
+                        Double bitcoin_text_double = Double.parseDouble(bitcoin_text);
+                        bitcoin_text_double = bitcoin_text_double * bitcoin_euro;
+                        String euro_text = new Double(bitcoin_text_double).toString();
+                        et_euro.setText(euro_text + " EURO");
+                    } catch (NumberFormatException e) {
+                        et_bitcoin.setText("");
+                    } // END TRY-CATCH BLOCK
+
+                } // END ELSE-BLOCK
+            } // END public void onClick(View view)
         });
 
         // Event Button Exit
@@ -48,6 +66,15 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+
+        // Event Button New
+        btn_new.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                et_bitcoin.setText("");
+                et_euro.setText("");
             }
         });
 
@@ -69,6 +96,27 @@ public class MainActivity extends Activity {
             }
         });
 
+        et_bitcoin.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                btn_change.setEnabled(true);
+            }
+        });
+
 
     } // END protected void onCreate
+
+
+
+
 } // END  class MainActivity extends Activity

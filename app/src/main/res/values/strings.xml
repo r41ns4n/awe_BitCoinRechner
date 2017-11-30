@@ -6,8 +6,9 @@
     <!-- Buttons -->
     <string name="btn_change">Umrechnen</string>
     <string name="btn_exit">Exit</string>
+    <string name="btn_new">New</string>
 
     <!-- Eingabe Felder -->
-    <string name="hint_euro">Bitte geben Sie hier Ihren Euro Betrag ein</string>
-    <string name="hint_bitcoin">Bitcoin Betrag</string>
+    <string name="hint_euro">Euro Betrag (€)</string>
+    <string name="hint_bitcoin">Bitcoin Betrag (BTC)</string>
 </resources>
