@@ -48,7 +48,6 @@
         android:text="@string/btn_new"
         />
 
-
     <Button
         android:id="@+id/btn_change"
         android:layout_width="wrap_content"
@@ -67,5 +66,26 @@
         android:layout_below="@+id/et_bitcoin"
         android:layout_marginEnd="20dp"
         android:text="@string/btn_exit" />
+
+    <Button
+        android:id="@+id/btn_catch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/btn_change"
+        android:layout_below="@+id/btn_change"
+        android:layout_marginTop="30dp"
+        android:text="@string/btn_catch" />
+
+    <TextView
+        android:id="@+id/tv_kurs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btn_catch"
+        android:layout_marginTop="18dp"
+        android:hint="@string/tv_kurs"
+        android:textAlignment="center"
+        android:textColor="#0000FF"
+        android:textSize="25dp" />
 
 </RelativeLayout>

@@ -7,6 +7,10 @@
     <string name="btn_change">Umrechnen</string>
     <string name="btn_exit">Exit</string>
     <string name="btn_new">New</string>
+    <string name="btn_catch">Kurs abrufen</string>
+
+    <!-- Label -->
+    <string name="tv_kurs">Kurs</string>
 
     <!-- Eingabe Felder -->
     <string name="hint_euro">Euro Betrag (€)</string>
